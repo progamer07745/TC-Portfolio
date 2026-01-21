@@ -205,3 +205,15 @@ filterBtns.forEach((btn) => {
         });
     });
 });
+
+window.onload = function () {
+    Swal.fire({
+        title: 'Work in Progress!',
+        text: 'الموقع لسه قيد التطوير، بنظبط الصور والأداء حالياً.',
+        icon: 'info',
+        confirmButtonText: 'وريني الشغل برضو',
+        background: '#04111f',
+        color: '#fff',
+        confirmButtonColor: '#00d4ff'
+    });
+};

@@ -113,7 +113,14 @@ const projects = [{
     },
 ];
 
-const certificates = [{
+const certificates = [
+    {
+        title: "C# Certificate from Microsoft",
+        desc: "C# Certificate from Microsoft",
+        image: "assets/images/Certificates images/C-sharp-cert.jpeg",
+        delay: "500"
+    },
+    {
         title: "HTML, CSS Certificate from Mahara-Tach",
         desc: "Completion certificate from Mahara-Tech",
         image: "assets/images/Certificates images/html, css from Mahara-Tech.png",
@@ -136,12 +143,6 @@ const certificates = [{
         desc: "Completion certificate in Bootstrap from ElSatr Platform",
         image: "assets/images/Certificates images/certificate bootstrap.png",
         delay: "400"
-    },
-    {
-        title: "C# Certificate from Microsoft",
-        desc: "C# Certificate from Microsoft",
-        image: "assets/images/Certificates images/C# certificate (mohamed khaled).jpeg",
-        delay: "500"
     },
 ]
 

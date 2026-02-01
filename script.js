@@ -113,8 +113,7 @@ const projects = [{
     },
 ];
 
-const certificates = [
-    {
+const certificates = [{
         title: "C# Certificate from Microsoft",
         desc: "C# Certificate from Microsoft",
         image: "assets/images/Certificates images/C-sharp-cert.jpeg",
@@ -269,14 +268,32 @@ filterBtns.forEach((btn) => {
 });
 
 window.onload = function () {
+    const isMobile = window.innerWidth < 768; // بنحدد لو الجهاز موبايل
+
     Swal.fire({
         dir: "rtl",
         title: 'Work in Progress!',
-        text: 'الموقع لسه قيد التطوير،بنضيف الصور وبنظبط الأداء حالياً.',
+        text: 'الموقع لسه قيد التطوير، بنضيف الصور وبنظبط الأداء حالياً.',
         icon: 'info',
         confirmButtonText: 'وريني الشغل برضو',
         background: '#04111f',
         color: '#fff',
-        confirmButtonColor: '#00a7c9'
+        confirmButtonColor: '#00a7c9',
+
+        // التعديل الجوهري هنا
+        width: isMobile ? '85%' : '500px', // لو موبايل صغره لـ 85% عشان يسيب مسافة يمين وشمال
+        position: isMobile ? 'center' : 'center',
+
+        // تقليل المسافات الداخلية في الموبايل
+        padding: isMobile ? '1rem' : '2rem',
+
+        // حركة اختيارية تخلي ظهوره ناعم
+        showClass: {
+            popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+            `
+        }
     });
 };

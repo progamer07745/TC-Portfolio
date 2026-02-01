@@ -442,7 +442,7 @@ a {
 
 .certificates-grid {
     display: grid;
-    margin: 200px;
+    margin: 0 80px 80px 80px;
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: 20px;
 

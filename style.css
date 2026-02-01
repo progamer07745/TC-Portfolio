@@ -276,7 +276,8 @@ a {
     content: "→";
     font-size: 1.2rem;
     transition: transform 0.3s ease;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .btn-main:hover {
@@ -381,8 +382,11 @@ a {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 30px;
+    width: 100%;
+    grid-auto-flow: dense;
+    align-items: stretch;
 }
 
 .project-item {
@@ -434,6 +438,14 @@ a {
 /* للـ Web: يد (Pointer) */
 .project-item.web .project-media {
     cursor: pointer;
+}
+
+.certificates-grid {
+    display: grid;
+    margin: 200px;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 20px;
+    
 }
 
 .project-media-link {
@@ -676,7 +688,8 @@ a {
 }
 
 
-.project-item.design .project-image {
+.project-item.design .project-image,
+.project-item.certificate .project-image {
     object-fit: contain;
     padding: 10px;
 }

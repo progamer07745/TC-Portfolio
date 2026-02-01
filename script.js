@@ -5,12 +5,12 @@ const projects = [{
         desc: "description of front-end project",
         link: "https://istighfar-counter.pages.dev",
         delay: "0",
-        image: "images/WEB photos/istighfar-counter.png"
+        image: "assets/images/WEB photos/istighfar-counter.png"
     },
     {
-        title: "2nd-Front-End project",
+        title: "Study Buddy",
         category: "web",
-        image: "",
+        image: "assets/images/WEB photos/Study Buddy.png",
         desc: "description of 2nd-front-end project",
         link: "",
         delay: "100",
@@ -27,7 +27,7 @@ const projects = [{
         title: "Coffee Break",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/1.png",
+        image: "assets/images/Graphic photos/1.png",
         delay: "200",
 
     },
@@ -35,7 +35,7 @@ const projects = [{
         title: "Jordan Shoes",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/2.png",
+        image: "assets/images/Graphic photos/2.png",
         delay: "300",
 
     },
@@ -43,7 +43,7 @@ const projects = [{
         title: "Special Coffee",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/3.png",
+        image: "assets/images/Graphic photos/3.png",
         delay: "400",
 
     },
@@ -51,7 +51,7 @@ const projects = [{
         title: "Valentino Perfume",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/4.png",
+        image: "assets/images/Graphic photos/4.png",
         delay: "500",
 
     },
@@ -59,7 +59,7 @@ const projects = [{
         title: "Burger",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/5.png",
+        image: "assets/images/Graphic photos/5.png",
         delay: "600",
 
     },
@@ -67,7 +67,7 @@ const projects = [{
         title: "Trio Market",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/6.png",
+        image: "assets/images/Graphic photos/6.png",
         delay: "600",
 
     },
@@ -75,7 +75,7 @@ const projects = [{
         title: "Cup Cake",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/7.png",
+        image: "assets/images/Graphic photos/7.png",
         delay: "600",
 
     },
@@ -83,7 +83,7 @@ const projects = [{
         title: "AirPods",
         category: "design",
         desc: "description for the image",
-        image: "images/portfolio photos/8.png",
+        image: "assets/images/Graphic photos/8.png",
         delay: "600",
 
     },
@@ -91,7 +91,7 @@ const projects = [{
         title: "HTML, CSS Image",
         category: "Thumbnails",
         desc: "description for the image",
-        image: "images/portfolio photos/9.png",
+        image: "assets/images/Graphic photos/9.png",
         delay: "600",
 
     },
@@ -99,7 +99,7 @@ const projects = [{
         title: "AI Tools",
         category: "Thumbnails",
         desc: "description for the image",
-        image: "images/portfolio photos/10.png",
+        image: "assets/images/Graphic photos/10.png",
         delay: "600",
 
     },
@@ -107,12 +107,45 @@ const projects = [{
         title: "ChatGPT",
         category: "Thumbnails",
         desc: "description for the image",
-        image: "images/portfolio photos/11.png",
+        image: "assets/images/Graphic photos/11.png",
         delay: "600",
 
     },
 ];
 
+const certificates = [{
+        title: "HTML, CSS Certificate from Mahara-Tach",
+        desc: "Completion certificate from Mahara-Tech",
+        image: "assets/images/Certificates images/html, css from Mahara-Tech.png",
+        delay: "100"
+    },
+    {
+        title: "HTML Certificate from ElSatr Platform",
+        desc: "Completion certificate in HTML from ElSatr Platform",
+        image: "assets/images/Certificates images/certificate html.png",
+        delay: "200"
+    },
+    {
+        title: "CSS Certificate from ElSatr Platforrm",
+        desc: "Completion certificate in CSS from ElSatr Platform",
+        image: "assets/images/Certificates images/certificate css.png",
+        delay: "300"
+    },
+    {
+        title: "Bootstrap Certificate from ElSatr Platforrm",
+        desc: "Completion certificate in Bootstrap from ElSatr Platform",
+        image: "assets/images/Certificates images/certificate bootstrap.png",
+        delay: "400"
+    },
+    {
+        title: "C# Certificate from Microsoft",
+        desc: "C# Certificate from Microsoft",
+        image: "assets/images/Certificates images/C# certificate (mohamed khaled).jpeg",
+        delay: "500"
+    },
+]
+
+// function to render the projects
 function renderProjects() {
     const projectsGrid = document.querySelector(".projects-grid");
     if (!projectsGrid) return;
@@ -121,53 +154,81 @@ function renderProjects() {
             // لو المشروع تصميم (Design)
             if (proj.category === "design" || proj.category === "Thumbnails") {
                 return `
-                    <div class="project-item design" data-aos="zoom-in">
-                        <a href="${proj.image}" class="glightbox project-media-link">
-                            <div class="project-media">
-                                <img src="${proj.image}" alt="${proj.title}" class="project-image" />
+                <div class="project-item design" data-aos="zoom-in">
+                    <a href="${proj.image}" class="glightbox project-media-link">
+                        <div class="project-media">
+                            <img src="${proj.image}" alt="${proj.title}" class="project-image" />
+                            
+                            <div class="dev-overlay">
+                                <i class="fas fa-search-plus arrow-icon"></i>
+                                <span class="btn-text">View Design</span>
+                            </div> 
+                        </div>
+                    </a>
                                 
-                                <div class="dev-overlay">
-                                    <i class="fas fa-search-plus arrow-icon"></i>
-                                    <span class="btn-text">View Design</span>
-                                </div> 
+                    <div class="project-info">  
+                        <h4>${proj.title}</h4>
+                        <p>${proj.desc}</p>
+                    </div>
+                </div>`;
+            } else {
+                return `
+                    <div class="project-item web" data-aos="zoom-in">
+                        <div class="project-media">
+                        <a href="${proj.link}" target="_blank" class="project-media-link">
+                            <img src="${proj.image}" alt="${proj.title}" class="project-image" />
+                            <div class="dev-overlay">
+                                <i class="fas fa-external-link-alt arrow-icon"></i>
+                                <span class="btn-text">View Live</span>
                             </div>
-                        </a>
-                                
+                            </a> 
+                        </div>
                         <div class="project-info">  
                             <h4>${proj.title}</h4>
                             <p>${proj.desc}</p>
                         </div>
                     </div>`;
             }
-            // لو المشروع ويب (Web) - يفضل زي ما هو بلينك خارجي
-            else {
-                return `
-                <div class="project-item web" data-aos="zoom-in">
-                    <div class="project-media">
-                        <img src="${proj.image}" alt="${proj.title}" class="project-image" />
-                        <a href="${proj.link}" target="_blank" class="dev-overlay">
-                            <i class="fas fa-external-link-alt arrow-icon"></i>
-                            <span class="btn-text">Live Demo</span>
-                        </a> 
-                    </div>
-                    <div class="project-info">  
-                        <h4>${proj.title}</h4>
-                        <p>${proj.desc}</p>
-                    </div>
-                </div>`;
-            }
         }).join("");
-
-    // تشغيل الـ Lightbox
-    const lightbox = GLightbox({
-        selector: '.glightbox',
-        touchNavigation: true,
-        loop: true,
-        zoomable: true
-    });
 }
 
 renderProjects();
+
+// function to render the certificates
+function renderCertificates() {
+    const certificatesGrid = document.querySelector(".certificates-grid");
+    if (!certificatesGrid) return;
+    certificatesGrid.innerHTML = certificates
+        .map((c) => {
+            return `
+                <div class="project-item certificate" data-aos="zoom-in">
+                    <a href="${c.image}" class="glightbox project-media">
+                        <div class="project-media">
+                            <img src="${c.image}" alt="${c.title}" class="project-image" />
+                             <div class="dev-overlay">
+                                <i class="fas fa-search-plus arrow-icon"></i>
+                                <span class="btn-text">View Certificate</span>
+                            </div> 
+                        </div>
+                    </a>
+
+                    <div class="project-info">
+                        <h4>${c.title}</h4>
+                        <p>${c.desc}</p>
+                    </div>
+                </div>
+            `
+        }).join("");
+}
+
+renderCertificates();
+
+const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true
+})
 
 // scroll effect
 window.addEventListener("scroll", () => {
@@ -208,12 +269,13 @@ filterBtns.forEach((btn) => {
 
 window.onload = function () {
     Swal.fire({
+        dir: "rtl",
         title: 'Work in Progress!',
-        text: 'الموقع لسه قيد التطوير، بنظبط الصور والأداء حالياً.',
+        text: 'الموقع لسه قيد التطوير،بنضيف الصور وبنظبط الأداء حالياً.',
         icon: 'info',
         confirmButtonText: 'وريني الشغل برضو',
         background: '#04111f',
         color: '#fff',
-        confirmButtonColor: '#00d4ff'
+        confirmButtonColor: '#00a7c9'
     });
 };

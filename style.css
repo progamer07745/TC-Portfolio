@@ -445,7 +445,7 @@ a {
     margin: 200px;
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: 20px;
-    
+
 }
 
 .project-media-link {
@@ -839,28 +839,66 @@ footer {
     }
 }
 
-/* =========================
-   Responsive
-========================= */
+/* ===================================================
+   Liquid Responsiveness System (The Beast Mode)
+====================================================== */
+
+/* 1. تظبيط الشاشات الكبيرة والمتوسطة (Laptops/Tablets) */
+@media (max-width: 1200px) {
+    #navbar {
+        padding: 15px 5%;
+    }
+
+    .about-container {
+        gap: 40px;
+    }
+
+    .certificates-grid {
+        margin: 50px 5%;
+        /* تقليل المارجن الضخم اللي كان 200px */
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+/* 2. تظبيط التابلت والموبايلات الكبيرة (Tablets/Large Phones) */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .about-image img {
+        width: 100%;
+    }
+}
+
+/* 3. تظبيط الموبايل (Standard Phones) - الشغل الحقيقي هنا */
 @media (max-width: 768px) {
 
+    /* Navbar Mobile */
     .nav-links,
     .btn-touch {
         display: none;
     }
 
+    /* Hero Section */
     #home {
-        padding-top: 100px;
-    }
-
-    .main-logo {
-        width: 150px;
+        padding: 120px 5% 60px;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
 
+    .hero-content span {
+        font-size: 2rem;
+    }
+
+    /* About Section */
     .about-container {
         flex-direction: column;
         text-align: center;
@@ -868,27 +906,77 @@ footer {
 
     .about-text h2 {
         text-align: center !important;
+        font-size: 2rem;
     }
 
-    .feature-item {
-        flex-direction: column;
-        align-items: center;
+    .experience-badge {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        margin-top: 20px;
+        display: inline-block;
     }
 
-    .skills-icons-container {
-        gap: 20px;
+    /* Grids System - التحدي الأكبر */
+    .projects-grid,
+    .grid-container,
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        /* عنصر واحد في السطر عشان ميبقاش مضغوط */
+        margin: 20px 0;
+        padding: 0 10px;
     }
 
-    .skill-icon-box {
-        width: 60px;
-        height: 60px;
-        font-size: 1.8rem;
+    .certificates-grid {
+        margin: 40px 0;
+    }
+
+    /* تصفير الـ 200px القديمة */
+
+    /* Cards adjustments */
+    .card {
+        padding: 30px 20px;
+    }
+
+    .project-media {
+        height: 220px;
     }
 }
 
-@media (max-width: 600px) {
-    .input-group {
-        flex-direction: column;
-        gap: 20px;
+/* 4. الشاشات الصغيرة جداً (Tiny Phones < 400px) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .btn-main {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* زرار بعرض الشاشة أسهل للضغط */
+
+    .skill-icon-box {
+        width: 55px;
+        height: 55px;
+    }
+
+    .team-title {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+    }
+}
+
+/* 5. تظبيط الـ Hover على الأجهزة اللي بتتش باللمس (Touch Devices) */
+/* عشان الـ Overlay ميفضلش معلق لما تشيل صباعك */
+@media (hover: none) {
+    .dev-overlay {
+        opacity: 1 !important;
+        /* خليه ظاهر بسيط أو عدله حسب ذوقك */
+        background: rgba(2, 6, 23, 0.4);
     }
 }
